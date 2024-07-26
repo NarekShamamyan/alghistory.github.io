@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALG's 30-Year Journey</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('colorkit.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        .header, .footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            position: relative;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .content {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding: 10px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            border-radius: 10px;
+            background-color: #30D1DE;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .container {
+            padding: 20px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out;
+        }
+        .container.left {
+            left: 0;
+        }
+        .container.right {
+            left: 50%;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #30D1DE;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .right::after {
+            left: -16px;
+        }
+        .content-box {
+            padding: 20px;
+            background-color: #a1d0d4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border-left: 6px solid #323081;
+        }
+        img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        a {
+            color: #D74AB8;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+            backdrop-filter: blur(5px); /* Optional: blur background */
+        }
+        .modal-content {
+            background-color: #b5e0f5;
+            margin: 10% auto; /* 10% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 6px solid #323081; /* Accent color for left border */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .container::after {
+                left: -12px;
+            }
+            .timeline::after {
+                left: 30px;
+            }
+            .modal-content {
+                width: 90%; /* Adjust width for mobile view */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ALG’s 30-Year Journey: Key Achievements and Milestones</h1>
+    </div>
+    <div class="content">
+        <div class="timeline">
+            <div class="container left">
+                <div class="content-box">
+                    <h2>1994 - Founding of the Mount Pleasant School</h2>
+                    <img src="mt.png" alt="Mount Pleasant School">
+                    <p>Fred Swaniker became the headmaster of the Mount Pleasant School. 
+                        The mission for the school was simple: quality but affordable education. <a class="open-modal" data-content="• Consistently ranked top 3 in primary school leaving exam in Botswana for the past 25 years <br> • Had 750 graduates over the years <br> • Had 100% self-financed growth <br> • Had its fees at 50% of other private schools in Botswana">Learn more</a>.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content-box">
+                    <h2>2004 - Founding of the African Leadership Academy</h2>
+                    <img src="ala.png" alt="African Leadership Academy">
+                    <p>ALA was founded with the aim of equipping 6000 African youth with the skills and knowledge to solve Africa's greatest problems and capture its biggest opportunities. You can explore the ALA history <a href="https://www.africanleadershipacademy.org/our-story-our-impact/">here</a>.</p>
+                    <p>However, ALA's model faced 3 <a class="open-modal" data-content=" <strong> • Cost </strong> - the fee of 30,000$/year was too expensive for most African families. <br> <strong> • Scale </strong> - 125 graduates per year was not enough to accomplish the mission <br> <strong> • Brain Drain Risk </strong> - 80% of ALA graduates left Africa to continue pursuing quality education "> challenges.</a></p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content-box">
+                    <h2>2013 - Establishment of African Leadership University (ALU)</h2>
+                    <img src="ALU-logo.png" alt="African Leadership University">
+                    <p>ALU was founded to provide higher education at a lower cost to a higher scale in order to help African talent become strong leaders and tackle Africa's challenges. You can discover ALU <a href="https://www.alueducation.com/home/about-alu/">here</a>.</p>
+                    <p>However, ALU's model faced 2 main <a class="open-modal" data-content=" <strong> • Cost </strong> - the fee of 15,000$/year was still too expensive for most African families. ALU's new, post-pandemic 'distributed-campus' model is close to 2000$/year <br> <strong> • Regulation </strong> - the existing regulations for higher education made it difficult to bring out ALU's innovative and low-cost potential. However, the post-pandemic regulations are more open to innovation, bringing ALU closer to its vision."> challenges.</a></p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content-box">
+                    <h2>2018 - Introduction of ALX: Moving Beyond Regulated Higher Education</h2>
+                    <img src="alx.jpg" alt="ALX">
+                    <p>ALX was introduced to focus on professional and vocational training, equipping young Africans with the skills needed in the modern economy. Since ALX's model is infinitely scalable, all students need for low-cost, quality education are Internet access and a laptop.<a class="open-modal" data-content="This link would take the new hires to a page where they can learn more about ALX.">Read more about ALX</a>.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content-box">
+                    <h2>2021 - Expansion into Tech Services and Data Science</h2>
+                    <img src="tech.webp" alt="Tech Services and Data Science">
+                    <p>ALG expanded its offerings to include specialized training in tech services and data science, responding to the growing demand for digital skills. <a class="open-modal" data-content="This link would take the new hires to a page where they can learn more about Tech Services Details">Find out more</a>.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content-box">
+                    <h2>2023 - Reaching Over 10,000 Graduates and Launching Global Initiatives</h2>
+                    <img src="FpHLQtoXsAkGeuZ.jpg" alt="Global Initiatives">
+                    <p>By 2023, ALG had impacted over 10,000 young leaders, with initiatives extending beyond Africa to global platforms. <a class="open-modal" data-content="This link would take the new hires to a page where they can learn more about Global Initiatives Details">Learn about our global reach</a>.</p>
+                </div>
+            </div>
+        </div>
+        <h2>Continuing the Legacy</h2>
+        <p>ALG continues to innovate and expand, staying true to its mission of nurturing a new generation of ethical and entrepreneurial African leaders. Our journey is a testament to the power of education and leadership in transforming societies. <a class="open-modal" data-content="Ongoing Projects Details">Find out more about our ongoing projects and future plans</a>.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 African Leadership Group. All Rights Reserved.</p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal and other elements
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        var modalText = document.getElementById("modal-text");
+
+        // When the user clicks on any link, open the modal and display the content
+        Array.from(document.getElementsByClassName("open-modal")).forEach(function(element) {
+            element.onclick = function() {
+                var content = element.getAttribute("data-content");
+                // Ensure that the content is rendered as HTML
+                var formattedContent = content.replace(/\n/g, '<br>');
+                modalText.innerHTML = formattedContent;
+                modal.style.display = "block";
+            };
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
